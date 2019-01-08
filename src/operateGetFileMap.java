@@ -44,7 +44,7 @@ public class operateGetFileMap {
 
                     classDocTxt.put(className, tempDocTxt);
 
-                }else if(classDocTxt.get(className).size()<100){
+                }else if(classDocTxt.get(className).size()<50){
 
                     classDocTxt.get(className).putAll(tempDocTxt);
                 }
