@@ -5,23 +5,9 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Map.Entry;
 
-public class OperateFile {
 
-    public static void main(String[] args) throws IOException {
-
-        String filePath = "E:\\testwindows";
-        Map<String,Map<String,String >> fileread2map = readFileByLine(filePath);
-
-        for(Entry<String, Map<String, String>> tempClass :fileread2map.entrySet()){
-
-            for(Entry<String, String> tempdoc :tempClass.getValue().entrySet()){
-
-                System.out.println(tempClass.getKey()+"#"+tempdoc.getKey()+":"+tempdoc.getValue());
-            }
-        }
-    }
+public class operateGetFileMap {
 
 
     public static Map<String,Map<String,String>> readFileByLine(String filePath) throws IOException{
@@ -49,8 +35,8 @@ public class OperateFile {
 
 //				System.out.println(className +"==="+docName);
 
-//				String txtStringArray [] =  txtString.split(" ");
-
+				String txtStringArray [] =  txtString.split(" ");
+//                System.out.println(txtStringArray.length);
                 if (!classDocTxt.containsKey(className)){
 
                     classDocTxt.put(className, tempDocTxt);
@@ -68,6 +54,5 @@ public class OperateFile {
         return classDocTxt;
     }
 
-
-
 }
+
