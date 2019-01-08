@@ -9,7 +9,10 @@ import java.util.Map;
 
 public class operateGetFileMap {
 
-
+    /*
+    *
+    * @author:qingyuan
+    * @param filePath*/
     public static Map<String,Map<String,String>> readFileByLine(String filePath) throws IOException{
         File file = new File(filePath);
         Map<String,Map<String,String>> classDocTxt = new HashMap<>();

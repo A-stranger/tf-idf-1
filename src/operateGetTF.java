@@ -26,8 +26,10 @@ public class operateGetTF {
                 String [] txtArray =  tempdoc.getValue().split(" ");
                 float txtlength = txtArray.length;
                 Map<String,Float> wordFreq = new HashMap<>();
+//                Set<String> wordSet = new HashSet<>();
                 for (String tempstring : txtArray){
 
+//                    wordSet.add(tempstring);
                     if (wordFreq.containsKey(tempstring)){
                         wordFreq.put(tempstring,wordFreq.get(tempstring)+1.0f);
                     }else{
