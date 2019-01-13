@@ -34,6 +34,7 @@ public class operateGetTF {
                         wordFreq.put(tempstring,wordFreq.get(tempstring)+1.0d);
                     }else{
                         wordFreq.put(tempstring,1.0d);
+
                     }
                 }
 
