@@ -2,12 +2,16 @@ import org.omg.CosNaming.NamingContextExtPackage.StringNameHelper;
 
 import java.util.*;
 
-public class operateGetTF {
+public class getTF {
 
-    /*
-    * 返回 Map<类String, Map<文档名String, Map<词String,词频float>>>
-    *
-    * */
+    /**
+    * @Description: 计算词频 tf
+    * @Param: [originMap]
+    * @return: java.util.Map<java.lang.String,java.util.Map<java.lang.String,java.util.Map<java.lang.String,java.lang.Double>>>
+     *     <类, <文档名, <词,词频> > >
+    * @Author: Qingyuan
+    * @Date: 2019/4/16
+    */
     public static Map<String, Map<String, Map<String,Double>>> getTF(Map<String,Map<String,String>> originMap)throws  Exception{
 
 

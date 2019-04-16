@@ -4,17 +4,21 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.*;
-public class operateGetIDF {
-
-    /*
-     * 某词的IDF = LOG(总文档数/包含该词的文档数) N/n
-     *
-     * 总文档数 类内文档总数 类内包含该词的文档数
-     *
-     * */
+public class getIDF {
 
 
-//            public static Map<String, Map<String, Map<String, Float>>> getIDF(Map<String, Map<String, String>> originMap)throws Exception {
+    //idea: 总文档数 类内文档总数 类内包含该词的文档数
+
+   /**
+   * @Description: 由Map<类名,<文档名,文档内容> 生成 <词,idf>
+    *     idf:log(N/n) N:总文档数；n:包含该词的文档数
+    *     如果一个词只在少部分文档中出现，那么这个词就很有代表性；比如 “经济”、“政治”
+    *     如果一个词在所有的文档中都出现，那么这个词就很普通，比如 “的”。
+   * @Param: [originMap]
+   * @return: java.util.Map<java.lang.String,java.lang.Double>
+   * @Author: Qingyuan
+   * @Date: 2019/4/16
+   */
     public static Map<String,Double> getIDF(Map<String, Map<String, String>> originMap)throws Exception {
 
 //        String filePath = "E:\\testwindows";
@@ -103,10 +107,6 @@ public class operateGetIDF {
             allnum.put(temp.getKey(),Math.log(fileCount/temp.getValue()));
 
         }
-
-
-
-
 
 
 //                return classnum;

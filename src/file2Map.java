@@ -1,3 +1,5 @@
+import org.junit.Test;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -7,13 +9,17 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-public class operateGetFileMap {
+public class file2Map {
 
-    /*
-    *
-    * @author:qingyuan
-    * @param filePath*/
-    public static Map<String,Map<String,String>> readFileByLine(String filePath) throws IOException{
+    /**
+    * @Description: 由文件生成 Map<类，文档名，文档内容>
+    * @Param: [filePath, filenums]
+     * 每个类中选择file nums篇文档
+    * @return: java.util.Map<java.lang.String,java.util.Map<java.lang.String,java.lang.String>>
+    * @Author: Qingyuan
+    * @Date: 2019/4/16
+    */
+    public static Map<String,Map<String,String>> readFileByLine(String filePath,Integer filenums) throws IOException{
         File file = new File(filePath);
         Map<String,Map<String,String>> classDocTxt = new HashMap<>();
 
@@ -44,11 +50,10 @@ public class operateGetFileMap {
 
                     classDocTxt.put(className, tempDocTxt);
 
-                }else if(classDocTxt.get(className).size()<50){
+                }else if(classDocTxt.get(className).size()<filenums){
 
                     classDocTxt.get(className).putAll(tempDocTxt);
                 }
-
             }
         } catch (FileNotFoundException e) {
             // TODO Auto-generated catch block
@@ -56,6 +61,7 @@ public class operateGetFileMap {
         }
         return classDocTxt;
     }
+
 
 }
 

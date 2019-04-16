@@ -1,23 +1,27 @@
 import org.junit.Test;
 
-import javax.sound.midi.SysexMessage;
 import java.io.IOException;
 import java.util.*;
 import java.util.Map.Entry;
 
 public class Main {
 
-
     public static void main(String[] args) throws IOException {
+        //test
+
+
+        //testhhaahdsfahh
+
 
 
 //        String filePath = "E:\\testwindows";
         String filePath = "E:\\1\\SplitData\\1\\train1";
 
+
         try {
-            Map<String, Map<String, String>> fileread2map = operateGetFileMap.readFileByLine(filePath);
-            Map<String, Map<String, Map<String, Double>>> tf = operateGetTF.getTF(fileread2map);
-            Map<String, Double> idf = operateGetIDF.getIDF(fileread2map);
+            Map<String, Map<String, String>> fileread2map = file2Map.readFileByLine(filePath,50);
+            Map<String, Map<String, Map<String, Double>>> tf = getTF.getTF(fileread2map);
+            Map<String, Double> idf = getIDF.getIDF(fileread2map);
 
             //tf*idf
             for (Entry<String, Map<String, Map<String, Double>>> classEntry : tf.entrySet()) {
@@ -51,13 +55,8 @@ public class Main {
 
                     System.out.println(list_Data);
 //                    }
-
-
                 }
             }
-            //Sort
-
-
             System.out.println();
         } catch (Exception e) {
             e.printStackTrace();
@@ -94,10 +93,13 @@ public class Main {
                 }
             }
         });
-
         System.out.println(list_Data);
 
     }
+
+
+
+
 
 
 }
