@@ -2,8 +2,17 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class operateEvaluation {
 
+
+public class operateEvaluation {
+    
+    /** 
+    * @Description: 目前没啥用。。。 
+    * @Param: [origional, classify] 
+    * @return: void 
+    * @Author: Qingyuan
+    * @Date: 2019/4/17 
+    */ 
     public static void getEvaluation(Map<String, ArrayList<String>> origional,Map<String, ArrayList<String>> classify) {
 
 //        //类别： 文档1，文档2，文档3

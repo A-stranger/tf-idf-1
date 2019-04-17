@@ -1,16 +1,19 @@
+import com.qingyuan.tfidf.IDF;
+import com.qingyuan.tfidf.TF;
+import com.qingyuan.tfidf.file2Map;
 import org.junit.Test;
 
 import java.util.*;
 
-public class operateGetClassTopK {
+public class getClassTopK {
 
-    public static Map<String, Map<String,Double>> getClassTopKMap(){
+    public static Map<String, Map<String,Double>> getClassTopKMap(Map<String, Map<String, Map<String, Double>>> tf, Map<String, Double> idf){
         String filePath = "E:\\1\\SplitData\\1\\train";
         Map<String, Map<String,Double>> classTopK = new HashMap<>();
         try {
-            Map<String, Map<String, String>> fileread2map = file2Map.readFileByLine(filePath,50);
-            Map<String, Map<String, Map<String, Double>>> tf = getTF.getTF(fileread2map);
-            Map<String, Double> idf = getIDF.getIDF(fileread2map);
+          //  Map<String, Map<String, String>> fileread2map = com.qingyuan.tfidf.file2Map.readFileByLine(filePath,50);
+          //  Map<String, Map<String, Map<String, Double>>> tf = com.qingyuan.tfidf.TF.getTF(fileread2map);
+          //  Map<String, Double> idf = com.qingyuan.tfidf.IDF.getIDF(fileread2map);
 
             //tf*idf
             for (Map.Entry<String, Map<String, Map<String, Double>>> classEntry : tf.entrySet()) {
@@ -73,21 +76,43 @@ public class operateGetClassTopK {
 
     @Test
     public void test(){
-        Map<String, Map<String,Double>> first = getClassTopKMap();
-        Map<String,List<Map.Entry<String, Double>>> list_Data = getClassTopK(first);
 
-        for (Map.Entry<String,List<Map.Entry<String, Double>>> tempclass: list_Data.entrySet()){
-            String classname = tempclass.getKey();
-            double average =0.0;
-            double sum = 0.0;
-            for (Map.Entry<String, Double> tempwords :tempclass.getValue()){
 
-                double temp = tempwords.getValue();
-                sum +=temp;
+        file2Map f2m = new file2Map();
+        TF tf = new TF();
+        IDF idf = new IDF();
+        try{
+
+            Map<String,Map<String,String>> fmap =  f2m.readFileByLine("E:\\testwindows",50);
+            Map<String, Map<String, Map<String,Double>>> thetf =  tf.getTF(fmap);
+            Map<String,Double> theidf = idf.getIDF(fmap);
+            Map<String, Map<String,Double>> first = getClassTopKMap(thetf,theidf);
+            Map<String,List<Map.Entry<String, Double>>> list_Data = getClassTopK(first);
+
+            for (Map.Entry<String,List<Map.Entry<String, Double>>> tempclass: list_Data.entrySet()){
+                String classname = tempclass.getKey();
+                double average =0.0;
+                double sum = 0.0;
+                for (Map.Entry<String, Double> tempwords :tempclass.getValue()){
+
+                    double temp = tempwords.getValue();
+                    sum +=temp;
+                }
+                average = sum/500;
+                System.out.println(classname+":"+sum+":"+average);
             }
-            average = sum/500;
-            System.out.println(classname+":"+sum+":"+average);
+
+        }catch (Exception exception){
+            exception.printStackTrace();
         }
+
+
+
+
+
+
+
+
 
 
     }

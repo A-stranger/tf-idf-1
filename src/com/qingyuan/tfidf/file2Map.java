@@ -1,3 +1,5 @@
+package com.qingyuan.tfidf;
+
 import org.junit.Test;
 
 import java.io.BufferedReader;

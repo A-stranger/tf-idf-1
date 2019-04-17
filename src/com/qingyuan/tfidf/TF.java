@@ -1,8 +1,10 @@
+package com.qingyuan.tfidf;
+
 import org.omg.CosNaming.NamingContextExtPackage.StringNameHelper;
 
 import java.util.*;
 
-public class getTF {
+public class TF {
 
     /**
     * @Description: 计算词频 tf

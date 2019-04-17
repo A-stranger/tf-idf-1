@@ -1,10 +1,12 @@
+package com.qingyuan.tfidf;
+
 import org.junit.Test;
 
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.*;
-public class getIDF {
+public class IDF {
 
 
     //idea: 总文档数 类内文档总数 类内包含该词的文档数
@@ -99,15 +101,12 @@ public class getIDF {
                     classnum.put(myEntry.getKey(),classWN);
                 }
 
-
-
                 //log(N/n)
         for (Map.Entry<String,Double> temp:allnum.entrySet()){
 
             allnum.put(temp.getKey(),Math.log(fileCount/temp.getValue()));
 
         }
-
 
 //                return classnum;
                 return allnum;
