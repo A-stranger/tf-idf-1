@@ -3,7 +3,7 @@ package com.qingyuan.tfidf;
 import org.junit.Test;
 import java.util.*;
 
-public class getFileTopK {
+public class TFIDF {
 
     /**
     * @Description: get file tf*idf Map
@@ -98,7 +98,8 @@ public class getFileTopK {
 
         try{
 
-            Map<String,Map<String,String>> fmap =  file2Map.readFileByLine("E:\\testwindows",50);
+            //String filePath = "NewsData";
+            Map<String,Map<String,String>> fmap =  file2Map.readFileByLine("E:\\NewsData",50);
             Map<String, Map<String, Map<String,Double>>> thetf =  TF.getTF(fmap);
             Map<String,Double> theidf = IDF.getIDF(fmap);
             Map<String, Map<String, Map<String, Double>>> tfidf = getFileTFIDF(thetf,theidf);
